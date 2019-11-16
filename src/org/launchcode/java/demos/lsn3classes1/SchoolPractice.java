@@ -6,11 +6,7 @@ import java.util.ArrayList;
 
 public class SchoolPractice {
     public static void main(String[] args) {
-        Student self = new Student();
-        self.setName("Elisha Johnson");
-        self.setStudentId(666);
-        self.setGpa(4.0);
-        self.setNumberOfCredits(1);
+        Student self = new Student("Elisha Johnson", 666, 25, 4.0);
         Teacher professor = new Teacher();
         professor.setFirstName("Doctor");
         professor.setLastName("Jones");
@@ -31,6 +27,8 @@ public class SchoolPractice {
         }
         ArrayList<Student> allStudents = course.getStudents();
         Student topStudent = allStudents.get(0);
-        System.out.println("Top Student: " + topStudent.getName());
+        self.addGrade(5, 3.5);
+        System.out.println("Top Student: " + topStudent.toString());
+        System.out.println(self.equals(new Student("Johnny", self.getStudentId())));
     }
 }
