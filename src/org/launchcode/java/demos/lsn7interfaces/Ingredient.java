@@ -1,5 +1,6 @@
 package org.launchcode.java.demos.lsn7interfaces;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public abstract class Ingredient {
@@ -39,8 +40,16 @@ public abstract class Ingredient {
 
     @Override
     public String toString() {
-        return "Name: " + name + "\n" +
-                "Cost: $" + cost + "\n" +
-                "Allergens: " + allergens + "\n";
+        DecimalFormat df2 = new DecimalFormat("0.00");
+        return name + " ... $" + df2.format(cost) + " ... " +
+                "Allergens: " + allergens;
+    }
+
+    public static void listItems(ArrayList items) {
+        Class classType = items.get(0).getClass();
+        System.out.println("\n" + classType.getSimpleName().toUpperCase() + "S:");
+        for (Object flavor : items) {
+            System.out.println(flavor.toString());
+        }
     }
 }
